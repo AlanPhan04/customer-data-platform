@@ -1,6 +1,10 @@
-pyspark==3.4.1           # Apache Spark cho streaming và batch
-confluent-kafka==2.2.0   # Kafka client (nếu cần tương tác Kafka trực tiếp)
-pyyaml==6.0              # Để đọc file config yaml
-pydantic==1.10.9         # Data validation, model (nếu cần)
-pytest==7.3.1            # Framework test
-pytest-mock==3.10.0      # Mock trong test
+apache-flink==1.18.0        # Python API cho Apache Flink (PyFlink)
+boto3==1.26.99              # AWS SDK Python để tương tác MinIO (S3 compatible)
+pyyaml==6.0                 # Đọc file config yaml
+pydantic==1.10.9            # Data model + validation
+pytest==7.3.1               # Test framework
+pytest-mock==3.10.0         # Mock trong test
+faker
+sqlalchemy
+psycopg2
+pymongo
