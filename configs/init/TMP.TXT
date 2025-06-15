@@ -1,0 +1,128 @@
+
+CREATE TABLE IF NOT EXISTS purchase_events (
+  transaction_id STRING,
+  customer_id STRING,
+  `timestamp` TIMESTAMP(3),
+  store_id STRING,
+  items ARRAY<ROW<product_id STRING, qty INT, unit_price DOUBLE>>,
+  total_amount DOUBLE,
+  payment_method STRING
+  , WATERMARK FOR `timestamp` AS `timestamp` - INTERVAL '5' SECOND
+) WITH (
+    'connector' = 'kafka',
+    'topic' = 'purchase_events',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);
+
+CREATE TABLE IF NOT EXISTS behavior_events (
+    event_id STRING,
+    customer_id STRING,
+    event_type STRING,
+    `timestamp` TIMESTAMP(3),
+    product_id STRING,
+    device_type STRING,
+    channel STRING,
+    metadata MAP<STRING, STRING>
+)  WITH (
+    'connector' = 'kafka',
+    'topic' = 'behavior_events',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);
+
+CREATE TABLE customer_clv (
+    customer_id STRING,
+    clv_score DOUBLE,
+    clv_tier STRING,
+    calculated_at TIMESTAMP(3),
+    model_version STRING
+WITH (
+    'connector' = 'kafka',
+    'topic' = 'customer_clv',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);
+
+CREATE TABLE customer_profile (
+    customer_id STRING,
+    full_name STRING,
+    gender STRING,
+    dob DATE,
+    region STRING,
+    signup_date DATE,
+    preferred_channel STRING
+) WITH (
+    'connector' = 'kafka',
+    'topic' = 'customer_profile',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);
+
+CREATE TABLE customer_loyalty (
+    customer_id STRING,
+    tier STRING,
+    loyalty_points INT,
+    joined_loyalty DATE
+) WITH (
+    'connector' = 'kafka',
+    'topic' = 'customer_loyalty',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);
+
+CREATE TABLE product_catalog (
+    product_id STRING,
+    product_name STRING,
+    brand STRING,
+    category STRING,
+    unit_price DOUBLE,
+    is_active BOOLEAN
+) WITH (
+    'connector' = 'kafka',
+    'topic' = 'product_catalog',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);
+
+CREATE TABLE customer_rfm (
+    customer_id STRING,
+    recency_days INT,
+    frequency INT,
+    monetary DOUBLE,
+    score DOUBLE,
+    calculated_at TIMESTAMP(3)
+) WITH (
+    'connector' = 'kafka',
+    'topic' = 'customer_rfm',
+    'properties.bootstrap.servers' = 'kafka:9092',
+    'properties.group.id' = 'flink-sql-group',
+    'scan.startup.mode' = 'earliest-offset',
+    'format' = 'json',
+    'json.map-null-key.mode' = 'LITERAL',
+    'json.ignore-parse-errors' = 'true'
+);

@@ -1,0 +1,38 @@
+# ------------------------ Cluster Configuration ------------------------
+
+jobmanager.rpc.address: jobmanager
+blob.server.port: 6124
+query.server.port: 6125
+rest.address: jobmanager
+
+# ------------------------ Hive Catalog Configuration ------------------------
+
+table.catalog.myhive.type: hive
+table.catalog.myhive.default-database: default
+table.catalog.myhive.hive-conf-dir: /opt/flink/hive-conf
+
+# ------------------------ Optional: Result mode ------------------------
+s3.access-key: minioadmin
+s3.secret-key: minioadmin
+s3.endpoint: http://minio:9000
+s3.path.style.access: true
+fs.s3a.path.style.access: true
+
+sql-client.execution.result-mode: tableau
+jobmanager.rpc.address: jobmanager
+rest.address: jobmanager  
+
+pipeline.jars: file:/opt/flink/extra-jars/*
+
+
+pipeline.classpaths: file:/opt/flink/extra-jars/*
+
+jobmanager.rpc.address: jobmanager
+rest.address: jobmanager  
+
+s3.access-key: minioadmin
+s3.secret-key: minioadmin
+s3.endpoint: http://minio:9000
+s3.path.style.access: true
+fs.s3a.path.style.access: true
+

@@ -1,0 +1,41 @@
+<configuration>
+  <!-- Define the FileSystem to use s3a -->
+  <property>
+    <name>fs.defaultFS</name>
+    <value>s3a://raw</value>
+  </property>
+
+  <!-- MinIO endpoint -->
+  <property>
+    <name>fs.s3a.endpoint</name>
+    <value>http://minio:9000</value>
+  </property>
+
+  <!-- MinIO credentials -->
+  <property>
+    <name>fs.s3a.access.key</name>
+    <value>minioadmin</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.secret.key</name>
+    <value>minioadmin</value>
+  </property>
+
+  <!-- Optional but recommended -->
+  <property>
+    <name>fs.s3a.path.style.access</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.connection.ssl.enabled</name>
+    <value>false</value>
+  </property>
+
+  <!-- Required for Hadoop 3.x and newer to recognize the implementation -->
+  <property>
+    <name>fs.s3a.impl</name>
+    <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+  </property>
+</configuration>

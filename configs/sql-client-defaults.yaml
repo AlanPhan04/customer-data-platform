@@ -1,0 +1,20 @@
+execution:
+  planner: blink
+  type: streaming
+  result-mode: tableau
+  parallelism: 1
+
+catalogs:
+  - name: myhive
+    type: hive
+    hive-conf-dir: /opt/flink/catalogs/hive-conf
+    default-database: default
+
+configuration:
+  table.dynamic-table-options.enabled: true
+  s3.access-key: minioadmin
+  s3.secret-key: minioadmin
+  s3.endpoint: http://minio:9000
+  s3.path.style.access: true
+
+# Optional: load user-defined functions, jars, etc.
