@@ -1,0 +1,30 @@
+[
+    {
+        "customer_id": "C0001",
+        "clv_score": "12218599.04",
+        "clv_tier": "High",
+        "calculated_at": "2025-06-14 00:12:47.862956",
+        "model_version": "v1.0"
+    },
+    {
+        "customer_id": "C0002",
+        "clv_score": "18802715.27",
+        "clv_tier": "Low",
+        "calculated_at": "2025-06-14 00:12:47.862956",
+        "model_version": "v1.0"
+    },
+    {
+        "customer_id": "C0003",
+        "clv_score": "1171558.49",
+        "clv_tier": "High",
+        "calculated_at": "2025-06-14 00:12:47.862956",
+        "model_version": "v1.0"
+    },
+    {
+        "customer_id": "C0004",
+        "clv_score": "17789314.61",
+        "clv_tier": "High",
+        "calculated_at": "2025-06-14 00:12:47.862956",
+        "model_version": "v1.0"
+    }
+]

@@ -1,0 +1,27 @@
+[
+    {
+        "product_id": "P001",
+        "product_name": "Product P001",
+        "brand": "Brand 4",
+        "category": "beverage",
+        "unit_price": "5337.12",
+        "is_active": "False"
+    },
+    {
+        "product_id": "P002",
+        "product_name": "Product P002",
+        "brand": "Brand 1",
+        "category": "personal care",
+        "unit_price": "36188.93",
+        "is_active": "True"
+    },
+    {
+        "product_id": "P003",
+        "product_name": "Product P003",
+        "brand": "Brand 3",
+        "category": "beverage",
+        "unit_price": "5784.26",
+        "is_active": "True"
+    }
+]
+

@@ -1,0 +1,38 @@
+[
+    {
+        "customer_id": "C0001",
+        "full_name": "Customer C0001",
+        "gender": "female",
+        "dob": "2001-09-20",
+        "region": "Central",
+        "signup_date": "2022-08-07",
+        "preferred_channel": "web"
+    },
+    {
+        "customer_id": "C0002",
+        "full_name": "Customer C0002",
+        "gender": "male",
+        "dob": "1980-08-27",
+        "region": "Central",
+        "signup_date": "2022-09-23",
+        "preferred_channel": "web"
+    },
+    {
+        "customer_id": "C0003",
+        "full_name": "Customer C0003",
+        "gender": "female",
+        "dob": "1983-01-28",
+        "region": "Central",
+        "signup_date": "2020-07-01",
+        "preferred_channel": "store"
+    },
+    {
+        "customer_id": "C0004",
+        "full_name": "Customer C0004",
+        "gender": "male",
+        "dob": "1993-07-25",
+        "region": "South",
+        "signup_date": "2021-12-28",
+        "preferred_channel": "app"
+    }
+]

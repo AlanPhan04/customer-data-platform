@@ -77,7 +77,7 @@ for i in range(10000):
         "SessionID": session_id,
         "CustomerID": id_generate(),
         "PageVisited": web_url,
-        "TimeSpent": timedelta(seconds=random.randint(15, 300)),
+        "TimeSpent": random.randint(15, 300),
         "ClickedProductId": id_generate(),
         "TimeSramp": str(datetime.now() + timedelta(microseconds=i))
     })
@@ -149,6 +149,9 @@ with open(f"{DATA_PATH}/pos/pos.json", "w") as f:
 df_web = pd.DataFrame(web)
 df_web.to_parquet(f"{DATA_PATH}/web/web.parquet")
 
+with open(f"{DATA_PATH}/web/web.json", "w") as f:
+    json.dump(web, f, indent = 4)
+
 # Mobile Postgre Database
 df_mobile = pd.DataFrame(mobile)
 engine = create_engine("postgresql+psycopg2://myuser:mypassword@localhost:5432/mydb")
@@ -157,6 +160,9 @@ df_mobile.to_sql("Mobile", con=engine, if_exists="replace", schema="mobile_app",
 # CRM CSV File
 df_crm = pd.DataFrame(crm)
 df_crm.to_csv(f"{DATA_PATH}/crm/crm.csv")
+
+with open(f"{DATA_PATH}/crm/crm.json", "w") as f:
+    json.dump(crm, f, indent = 4)
 
 # E-commerce MongoDB Database
 df_ecommerce = pd.DataFrame(ecommerce)
